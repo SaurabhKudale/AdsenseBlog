@@ -15,3 +15,7 @@ Meta Tags Generator
 https://metatags.io/
 https://www.seoptimer.com/meta-tag-generator
 https://www.fullstack.cafe/interview-questions/aspnet-web-api
+
+Angular Tutorials
+-----------------
+https://www.tektutorialshub.com/angular/angular-routing-navigation/
