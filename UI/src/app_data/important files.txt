@@ -19,3 +19,12 @@ https://www.fullstack.cafe/interview-questions/aspnet-web-api
 Angular Tutorials
 -----------------
 https://www.tektutorialshub.com/angular/angular-routing-navigation/
+
+Reference Websites
+------------------
+https://www.v3cars.com/
+https://www.zigwheels.com/
+
+MD Bootstrap
+------------
+https://mdbootstrap.com/docs/standard/navigation/navbar/

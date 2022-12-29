@@ -8,6 +8,9 @@ import { ContactComponent } from './contact/contact.component';
 import { PolicyComponent } from './policy/policy.component';
 import { TermsComponent } from './terms/terms.component';
 import { HomeComponent } from './home/home.component';
+import { MenuComponent } from './menu/menu.component';
+import { BrandComponent } from './cars/brand/brand.component';
+import { CarDetailsComponent } from './cars/brand/car-details/car-details.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { HomeComponent } from './home/home.component';
     ContactComponent,
     PolicyComponent,
     TermsComponent,
-    HomeComponent
+    HomeComponent,
+    MenuComponent,
+    BrandComponent,
+    CarDetailsComponent
   ],
   imports: [
     BrowserModule,
