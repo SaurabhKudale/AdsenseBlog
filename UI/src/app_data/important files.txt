@@ -28,3 +28,7 @@ https://www.zigwheels.com/
 MD Bootstrap
 ------------
 https://mdbootstrap.com/docs/standard/navigation/navbar/
+
+Snippets
+--------
+1. https://github.com/Jon-Peppinck/angular-node-mysql-crud
