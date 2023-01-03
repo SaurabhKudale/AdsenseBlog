@@ -37,7 +37,8 @@
                                     <div class="col col-sm-6 left-box"><i
                                             class="fa-solid fa-screwdriver-wrench pe-2"></i>Engine Power</div>
                                     <div class="col col-sm-6 right-box">
-                                        <span>{{objCarDetails[0].petrolEnginePower}}</span></div>
+                                        <span>{{objCarDetails[0].petrolEnginePower}}</span>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col col-sm-6 left-box"><i class="fa fa-suitcase pe-2"></i>Boot Space
@@ -75,7 +76,7 @@
                 </div>
                 <div class="card-body pt-0">
                     <div class="widget-49">
-                        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
                             <!-- Carousel indicators -->
                             <ol class="carousel-indicators">
                                 <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
@@ -98,6 +99,49 @@
                                 <span class="carousel-control-prev-icon"></span>
                             </a>
                             <a class="carousel-control-next" href="#myCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="card card-margin">
+                <div class="card-header no-border">
+                    <h5 class="card-title">Colors Available</h5>
+                </div>
+                <div class="card-body pt-0">
+                    <div class="widget-49">
+                        <div class="pb-3 cursor-pointer">
+                            <div class="form-check form-check-inline"
+                                *ngFor="let color of objCarDetails[0].colorsAvailable; index as i; first as isFirst">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                    [attr.id]="'inlineRadio' + i" [attr.value]="'option' + i" [checked]="isFirst" (change)="variantOptionChanged(color)">
+                                <label class="form-check-label" [attr.for]="'inlineRadio' + i">{{color.color}}</label>
+                            </div>
+                        </div>
+                        <div id="myCarouselColors" class="carousel slide" data-bs-ride="carousel"
+                            data-bs-interval="3000">
+                            <!-- <div *ngIf="true">
+                                <span>{{variantImages}}</span>
+                            </div> -->
+                            <ol class="carousel-indicators">
+                                <li *ngFor="let image of variantImages; index as i; first as isFirst"
+                                    data-bs-target="#myCarouselColors" [attr.data-bs-slide-to]="i"
+                                    [ngClass]="{'active': isFirst}"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active"
+                                    *ngFor="let image of variantImages; index as i; first as isFirst"
+                                    [ngClass]="{'active': isFirst}">
+                                    <img [src]="image.url" class="d-block w-100" [alt]="image.alt">
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#myCarouselColors" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#myCarouselColors" data-bs-slide="next">
                                 <span class="carousel-control-next-icon"></span>
                             </a>
                         </div>
@@ -131,11 +175,15 @@
                                 type="button" role="tab" aria-controls="contact" aria-selected="true">{{header.tabHeader}}</button>
                         </li> -->
 
-                        <li class="nav-item" role="presentation" *ngFor="let header of objCarDetails[0].overviewTabHeaders; index as i; first as isFirst">
-                            <button class="nav-link" [ngClass]="{'active': isFirst}" [attr.id]="header.tabHeader + '-tab'" data-bs-toggle="tab" [attr.data-bs-target]="'#' + header.tabHeader"
-                                type="button" role="tab" [attr.aria-controls]="header.tabHeader" aria-selected="true">{{header.tabHeader}}</button>
+                        <li class="nav-item" role="presentation"
+                            *ngFor="let header of objCarDetails[0].overviewTabHeaders; index as i; first as isFirst">
+                            <button class="nav-link" [ngClass]="{'active': isFirst}"
+                                [attr.id]="header.tabHeader + '-tab'" data-bs-toggle="tab"
+                                [attr.data-bs-target]="'#' + header.tabHeader" type="button" role="tab"
+                                [attr.aria-controls]="header.tabHeader"
+                                aria-selected="true">{{header.tabHeader}}</button>
                         </li>
-                        
+
                     </ul>
                     <div class="tab-content" id="myTabContent">
                         <!-- <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...
@@ -146,9 +194,11 @@
                         <!-- <div *ngFor="let header of objCarDetails[0].overviewTabHeaders; index as i;" class="tab-pane fade" 
                         id="contact" role="tabpanel" aria-labelledby="contact-tab'">{{header.tabDescription}}</div> -->
 
-                        <div class="tab-pane fade show" *ngFor="let header of objCarDetails[0].overviewTabHeaders; index as i; first as isFirst"
-                         [attr.id]="header.tabHeader" [ngClass]="{'active': isFirst}" role="tabpanel" [attr.aria-labelledby]="header.tabHeader + '-tab'">
-                         {{header.tabDescription}}
+                        <div class="tab-pane fade show"
+                            *ngFor="let header of objCarDetails[0].overviewTabHeaders; index as i; first as isFirst"
+                            [attr.id]="header.tabHeader" [ngClass]="{'active': isFirst}" role="tabpanel"
+                            [attr.aria-labelledby]="header.tabHeader + '-tab'">
+                            {{header.tabDescription}}
                         </div>
                     </div>
                 </div>
