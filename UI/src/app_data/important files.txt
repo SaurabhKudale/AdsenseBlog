@@ -32,3 +32,7 @@ https://mdbootstrap.com/docs/standard/navigation/navbar/
 Snippets
 --------
 1. https://github.com/Jon-Peppinck/angular-node-mysql-crud
+
+Backend Node Express
+--------------------
+https://stackabuse.com/building-a-rest-api-with-node-and-express/
