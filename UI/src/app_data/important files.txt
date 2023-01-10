@@ -36,3 +36,5 @@ Snippets
 Backend Node Express
 --------------------
 https://stackabuse.com/building-a-rest-api-with-node-and-express/
+https://blog.logrocket.com/build-rest-api-node-express-mysql/
+https://expressjs.com/en/resources/middleware/cors.html
