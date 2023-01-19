@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CarServiceService } from 'src/app/services/car-service.service';
 
 @Component({
   selector: 'app-car-details',
@@ -11,17 +12,20 @@ export class CarDetailsComponent implements OnInit, OnDestroy {
   car_name: any;
   private subscription: any;
   variantImages: any;
+  cars: any;
 
   objCarDetails: any[] = [];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+    private api: CarServiceService) { }
 
   ngOnInit() {
     this.subscription = this.route.params.subscribe(params => {
       this.brand_name = params['brand-name'];
       this.car_name = params['car-name'];
     });
-
+    this.getCarDetails();
+    
     this.objCarDetails.push({
       "id": 1,
       "model": "Tata Nexon",
@@ -167,6 +171,15 @@ export class CarDetailsComponent implements OnInit, OnDestroy {
     });
 
     this.variantImages = this.objCarDetails[0].colorsAvailable[0].images;
+  }
+
+  getCarDetails()
+  {
+    debugger;
+    this.api.getCars().subscribe((data) => {
+      debugger;
+      this.cars = data;
+    });
   }
 
   variantOptionChanged(data:any) {
