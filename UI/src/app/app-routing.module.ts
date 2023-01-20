@@ -9,8 +9,7 @@ import { PolicyComponent } from './policy/policy.component';
 import { TermsComponent } from './terms/terms.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutComponent },
   { path: 'policy', component: PolicyComponent },
