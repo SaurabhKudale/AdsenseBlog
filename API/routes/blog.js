@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const cars = require("../services/cars");
+const blog = require("../services/blog");
 
 router.get("/", async function (req, res, next) {
   try {
-    res.json(await cars.getAllCars(req.query.page));
+    res.json(await blog.getBlogs(req.query.page));
   } catch (err) {
-    console.error(`Error while getting cars `, err.message);
+    console.error(`Error while getting blogs `, err.message);
     next(err);
   }
 });

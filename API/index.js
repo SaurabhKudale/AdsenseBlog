@@ -2,12 +2,23 @@ const express = require("express");
 const cors = require('cors')
 const app = express();
 const port = 3000;
-const carsRouter = require("./routes/cars");
+const blogRoute = require("./routes/blog");
 
 app.use(express.json());
-app.use(cors({
-  origin: ['http://localhost:4200/', 'https://www.google.com/']
-}));
+const corsOpts = {
+  origin: '*',
+
+  methods: [
+    'GET',
+    'POST',
+  ],
+
+  allowedHeaders: [
+    'Content-Type',
+  ],
+};
+
+app.use(cors(corsOpts));
 
 app.use(
   express.urlencoded({
@@ -19,7 +30,7 @@ app.get("/", (req, res) => {
   res.json({ message: "ok" });
 });
 
-app.use("/cars", carsRouter);
+app.use("/blogs", blogRoute);
 
 /* Error handler middleware */
 app.use((err, req, res, next) => {

@@ -2,11 +2,11 @@ const db = require("./db");
 const helper = require("../helper");
 const config = require("../config");
 
-async function getAllCars(page = 1) {
+async function getBlogs(page = 1) {
   const offset = helper.getOffset(page, config.listPerPage);
   const rows = await db.query(
-    `SELECT id, name, brand_id
-    FROM car_master LIMIT ${offset},${config.listPerPage}`
+    `SELECT id, title, content, display_image
+    FROM blog_master LIMIT ${offset},${config.listPerPage}`
   );
   const data = helper.emptyOrRows(rows);
   const meta = { page };
@@ -66,7 +66,7 @@ async function remove(id) {
 }
 
 module.exports = {
-  getAllCars,
+  getBlogs,
   create,
   update,
   remove,
