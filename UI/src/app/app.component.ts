@@ -19,9 +19,9 @@ export class AppComponent {
   getCarDetails()
   {
     debugger;
-    this.api.getCars().subscribe((data) => {
+    this.api.getCars().subscribe((data:any) => {
       debugger;
-      this.blogs = data;
+      this.blogs = data.body;
     });
   }
 }

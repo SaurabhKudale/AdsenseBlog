@@ -8,6 +8,6 @@ export class CarServiceService {
   constructor(private http:HttpClient) { }
 
   getCars(){
-    return this.http.get('http://localhost:3000/blogs'); 
+    return this.http.get('https://blogapi.findyourwheel.com/api/read.php'); 
   }
 }
