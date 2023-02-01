@@ -6,11 +6,10 @@
     include_once '../class/blog.php';
     $database = new Database();
     $db = $database->getConnection();
-    $items = new Employee($db);
+    $items = new Blog($db);
     $stmt = $items->getBlogs();
     $itemCount = $stmt->rowCount();
 
-    // echo json_encode($itemCount);
     if($itemCount > 0){
         
         $employeeArr = array();

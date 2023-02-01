@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CarServiceService } from './services/car-service.service';
+import { BlogService } from './services/blog-service.service';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +7,10 @@ import { CarServiceService } from './services/car-service.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'UI';
+  title = 'Home';
   blogs: any;
 
-  constructor(private api: CarServiceService) { }
+  constructor(private api: BlogService) { }
 
   ngOnInit() {
     this.getCarDetails();
@@ -19,7 +19,7 @@ export class AppComponent {
   getCarDetails()
   {
     debugger;
-    this.api.getCars().subscribe((data:any) => {
+    this.api.getBlogs().subscribe((data:any) => {
       debugger;
       this.blogs = data.body;
     });

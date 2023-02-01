@@ -1,16 +1,14 @@
 <?php
-    class Employee{
+    class Blog{
         // Connection
         private $conn;
         // Table
         private $db_table = "blog_master";
         // Columns
         public $id;
-        public $name;
-        public $email;
-        public $age;
-        public $designation;
-        public $created;
+        public $title;
+        public $content;
+        public $display_image;
         // Db connection
         public function __construct($db){
             $this->conn = $db;
@@ -55,30 +53,28 @@
         //     return false;
         // }
         // // READ single
-        // public function getSingleEmployee(){
-        //     $sqlQuery = "SELECT
-        //                 id, 
-        //                 name, 
-        //                 email, 
-        //                 age, 
-        //                 designation, 
-        //                 created
-        //               FROM
-        //                 ". $this->db_table ."
-        //             WHERE 
-        //                id = ?
-        //             LIMIT 0,1";
-        //     $stmt = $this->conn->prepare($sqlQuery);
-        //     $stmt->bindParam(1, $this->id);
-        //     $stmt->execute();
-        //     $dataRow = $stmt->fetch(PDO::FETCH_ASSOC);
+        public function getPostDetails(){
+            $sqlQuery = "SELECT
+                        id, 
+                        title, 
+                        content, 
+                        display_image
+                      FROM
+                        ". $this->db_table ."
+                    WHERE 
+                       id = ?
+                    LIMIT 0,1";
+            $stmt = $this->conn->prepare($sqlQuery);
+            $stmt->bindParam(1, $this->id);
+            $stmt->execute();
+            $dataRow = $stmt->fetch(PDO::FETCH_ASSOC);
             
-        //     $this->name = $dataRow['name'];
-        //     $this->email = $dataRow['email'];
-        //     $this->age = $dataRow['age'];
-        //     $this->designation = $dataRow['designation'];
-        //     $this->created = $dataRow['created'];
-        // }        
+            $this->id = $dataRow['id'];
+            $this->title = $dataRow['title'];
+            $this->content = $dataRow['content'];
+            $this->display_image = $dataRow['display_image'];
+        }        
+
         // // UPDATE
         // public function updateEmployee(){
         //     $sqlQuery = "UPDATE

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BlogService } from '../services/blog-service.service';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +7,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  title = 'Home';
+  blogs: any;
 
+  constructor(private api: BlogService) { }
+
+  ngOnInit() {
+    this.getCarDetails();
+  }
+
+  getCarDetails()
+  {
+    debugger;
+    this.api.getBlogs().subscribe((data:any) => {
+      debugger;
+      this.blogs = data.body;
+    });
+  }
 }

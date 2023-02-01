@@ -11,8 +11,7 @@ import { PolicyComponent } from './policy/policy.component';
 import { TermsComponent } from './terms/terms.component';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
-import { BrandComponent } from './cars/brand/brand.component';
-import { CarDetailsComponent } from './cars/brand/car-details/car-details.component';
+import { PostDetailsComponent } from './post-details/post-details.component';
 import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
@@ -24,8 +23,7 @@ import { FooterComponent } from './footer/footer.component';
     TermsComponent,
     HomeComponent,
     MenuComponent,
-    BrandComponent,
-    CarDetailsComponent,
+    PostDetailsComponent,
     FooterComponent
   ],
   imports: [
